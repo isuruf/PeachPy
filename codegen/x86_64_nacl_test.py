@@ -1,7 +1,6 @@
 # This file is part of PeachPy package and is licensed under the Simplified BSD license.
 #    See license.rst for the full text of the license.
 
-from __future__ import print_function
 from opcodes.x86_64 import *
 from codegen.code import CodeWriter, CodeBlock
 import operator
@@ -71,7 +70,7 @@ from peachpy.x86_64 import *\n\
 \n\
 instruction_list = []\n\
 ", file=out)
-    for group, instruction_names in six.iteritems(instruction_groups):
+    for group, instruction_names in instruction_groups.items():
         with CodeWriter() as code:
             code.line("# " + group)
             for name in instruction_names:
@@ -88,11 +87,11 @@ instruction_list = []\n\
                 for instruction_form in filter_instruction_forms(name_instruction.forms):
                     operands = map(generate_operand, instruction_form.operands)
                     if not any(map(lambda op: op is None, operands)):
-                        instruction_text = "%s(%s)" % (instruction_form.name, ", ".join(operands))
+                        instruction_text = "{}({})".format(instruction_form.name, ", ".join(operands))
                         if any(map(operator.attrgetter("is_memory"), instruction_form.operands)):
-                            code.line("instruction_list.append((\"%s\", (MOV(esi, esi), %s)))" % (str(instruction_form), instruction_text))
+                            code.line(f"instruction_list.append((\"{str(instruction_form)}\", (MOV(esi, esi), {instruction_text})))")
                         else:
-                            code.line("instruction_list.append((\"%s\", (%s,)))" % (str(instruction_form), instruction_text))
+                            code.line(f"instruction_list.append((\"{str(instruction_form)}\", ({instruction_text},)))")
 
         print(str(code), file=out)
 
