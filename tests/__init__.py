@@ -1,4 +1,3 @@
-import six
 
 
 def equal_codes(code, ref_code):

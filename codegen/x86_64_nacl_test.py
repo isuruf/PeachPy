@@ -6,7 +6,6 @@ from codegen.code import CodeWriter, CodeBlock
 import operator
 import json
 import os
-import six
 
 
 instruction_set = read_instruction_set()

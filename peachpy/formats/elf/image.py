@@ -38,7 +38,6 @@ class Image:
 
     @property
     def as_bytearray(self):
-        import six
         from peachpy.formats.elf.file import FileHeader
         from peachpy.formats.elf.section import Section, StringSection, SymbolSection
         from peachpy.util import roundup

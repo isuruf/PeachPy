@@ -2,9 +2,6 @@
 #    See license.rst for the full text of the license.
 
 
-import six
-
-
 class Register:
     """A base class for all encodable registers (rip is not encodable)"""
     _mask_size_map = {

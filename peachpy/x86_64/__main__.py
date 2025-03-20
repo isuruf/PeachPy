@@ -7,7 +7,6 @@ from peachpy import *
 from peachpy.x86_64 import *
 import sys
 import argparse
-import six
 
 
 parser = argparse.ArgumentParser(

@@ -2,9 +2,6 @@
 # See license.rst for the full text of the license.
 
 
-import six
-
-
 class SectionFlags:
     # Section contains executable code
     code = 0x00000020

@@ -3,7 +3,6 @@
 
 import opcodes
 import copy
-import six
 from opcodes.x86_64 import *
 from codegen.code import CodeWriter, CodeBlock
 import operator

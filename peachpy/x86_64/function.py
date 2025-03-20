@@ -5,7 +5,6 @@ import os
 import operator
 import bisect
 import collections
-import six
 
 import peachpy
 import peachpy.writer
